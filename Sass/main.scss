@@ -1,0 +1,21 @@
+* {
+    font-family: 'roboto', sans-serif;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-container {
+    max-width: 767px;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+a img { /* seulement pour les img-link */
+    width: 100%;
+}
