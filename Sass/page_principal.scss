@@ -1,0 +1,67 @@
+@import 'main';
+
+img {
+    width: 100%;
+}
+
+.intro-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 57px;
+    gap: 21px;
+    background-color: $bg-color-grey;
+    &__title {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 70%;
+        gap: 15px;
+    }
+    &__text {
+        padding: 0 26px 0 34px;
+        font-size: $font-size-18px;
+        font-weight: 300;
+        text-align: center;
+    }
+    &__btn {
+        @include btn-explorer-command(218px, 50px);
+    }
+}
+
+.functioning-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 48px 20px 68px 20px;
+    box-sizing: border-box;
+    .functioning-container {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        &__card {
+            display: flex;
+            align-items: center;
+            height: 72px;
+            margin-left: 12px;
+            max-width: 322px;
+            gap: 25px;
+            border-radius: 20px;
+            background-color: $bg-color-grey;
+            &--circle {
+                position: relative;
+                left: -11px;
+                border-radius: 20px;
+                border: 1px solid #9356DC;
+                padding: 2px 6px;
+                font-size: $font-size-badge;
+                color: $main-bg-color;
+                background-color: #9356DC;
+            }
+            &--icon {
+            }
+        }
+    }
+}

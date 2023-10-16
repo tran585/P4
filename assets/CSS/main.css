@@ -2,7 +2,60 @@
   font-family: 'roboto', sans-serif;
   margin: 0; }
 
-/* color */
 /* font */
+/* color */
+/* font-size */
+/* Mixin */
+a {
+  text-decoration: none;
+  color: inherit; }
+
+body {
+  display: flex;
+  justify-content: center; }
+
+.main-container {
+  max-width: 767px;
+  box-sizing: border-box;
+  width: 100%; }
+
+.header {
+  text-align: center; }
+  .header__logo {
+    width: 200px;
+    padding: 14px 0; }
+  .header__location {
+    display: flex;
+    justify-content: center;
+    gap: 17px;
+    background-color: #EAEAEA;
+    padding: 15px 0; }
+
+.btn-heart__checkbox {
+  display: none; }
+  .btn-heart__checkbox:checked + .btn-heart__container .btn-heart__container--first {
+    opacity: 0; }
+  .btn-heart__checkbox:checked + .btn-heart__container .btn-heart__container--second {
+    opacity: 1; }
+.btn-heart__container--first {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: opacity 100ms; }
+.btn-heart__container--second {
+  position: relative;
+  /*  */
+  background: -webkit-linear-gradient(red, orange);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: opacity 1000ms cubic-bezier(0.03, 0.99, 1, 0.58);
+  opacity: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }
 
 /*# sourceMappingURL=main.css.map */
