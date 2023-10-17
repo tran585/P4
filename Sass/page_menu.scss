@@ -1,0 +1,21 @@
+@import '../Sass/main.scss';
+
+
+img {
+    object-fit: cover;
+    width: 100%;
+}
+
+
+.btn {
+    &__order {
+        @include btn-explorer-command(186px, 50px);
+    }
+}
+.background-container {
+    @include flex-column;
+}
+section {
+    display: flex;
+    flex-direction: column;
+}

@@ -10,6 +10,7 @@ $font-family-shrikhand: 'shrikhand', serif;
 $main-bg-color: #FFFFFF;
 $bg-color-grey: #F6F6F6;
 $bg-color-grey-2: #EAEAEA;
+$bg-color-footer: #353535;
 $btn-color: #FF79DA;
 $badge-color: #99E2D0;
 
@@ -33,6 +34,15 @@ $font-weight-500: 500;
     font-weight: $font-weight-300;
 }
 
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-row {
+    display: flex;
+}
+
 @mixin btn-explorer-command($width, $height) {
     width: $width;
     height: $height;
@@ -50,6 +60,24 @@ $font-weight-500: 500;
     }
 }
 
+@mixin media-query-size ($breakpoint) {
+    @if $breakpoint == tablet {
+        @media screen and (min-width: 768px) {
+            @content;
+        }
+    }
+    @else if $breakpoint == desktop {
+        @media screen and (min-width: 1024px) {
+            @content;
+        }
+    }
+    @else if $breakpoint == large-desktop {
+        @media screen and (min-width: 1440px) {
+            @content;
+        }
+    }
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -60,7 +88,7 @@ body {
 }
 
 .main-container {
-    max-width: 767px;
+    max-width: 1440px;
     box-sizing: border-box;
     width: 100%;
 }
@@ -79,10 +107,41 @@ body {
         padding: 15px 0;
     }
 }
+.footer {
+    @include flex-column;
+    gap: 16px;
+    padding: 22px 25px;
+    background-color: $bg-color-footer;
+    color: $main-bg-color;
+    @include media-query-size(tablet) {
+        flex-direction: row-reverse;
+        align-items: end;
+        padding: 56px 25px 30px 25px;
+    }
+    &__title {
+        @include title-h1-shrikhand;
+        font-size: $font-size-18px;
+    }
+    &__content {
+        @include flex-column;
+        gap: 7px;
+        @include media-query-size(tablet) {
+            flex-direction: row;
+        }
+    }
+}
 
 .btn-heart {
+    @include flex-row;
+    align-items: center;
     &__checkbox {
-        display: none;
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 18px;
         &:checked + .btn-heart__container .btn-heart__container--first {
             opacity: 0;
         }
@@ -91,6 +150,9 @@ body {
         }
     }
     &__container {
+        .fa-heart{
+            font-size: 22px;
+        }
         &--first {
             position: relative;
             top: 0;
@@ -101,7 +163,7 @@ body {
         }
         &--second { 
             position: relative;/*  */
-            background: -webkit-linear-gradient(red, orange);
+            background: -webkit-linear-gradient(#9356DC, $btn-color);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -110,7 +172,7 @@ body {
             top: 0;
             right: 0;
             bottom: 0;
-            left: 0;
+            left: -26px;
         }
     }
 }
