@@ -16,13 +16,14 @@
 <body>
     <div class="main-container">
         <header class="header">
-            <img class="header__logo" src="../assets/images/logo/ohmyfood@2x.svg" alt="Logo site Ohmyfood">
+            <a class="header__btn" href="../index.html"><i class="fa-solid fa-arrow-left"></i></a>
+            <img class="header__logo" src="../assets/images/logo/ohmyfood@2x.svg" alt="Logo site Ohmyfood"><!-- alt -->
         </header>
+        <img class="main-container__img" src="../assets/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt=""><!-- alt -->
         <main class="background-container">
-            <section class="">
-                <img src="../assets/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg">
-                <div class="background-container__child">
-                    <h1 class="background-container__child--headline">La palette du goût</h1>
+            <section class="intro">
+                <div class="intro__container">
+                    <h1 class="intro__container--title">La palette du goût</h1>
                     <div class="btn-heart">
                         <input class="btn-heart__checkbox" type="checkbox" id="checkbox" name="checkbox">
                         <label class="btn-heart__container" for="checkbox">
@@ -32,7 +33,7 @@
                     </div>
                 </div>
             </section>
-            <section class="meal-section">
+            <section class="menu-section">
                 <h3>Entrées</h3>
                 <div class="card">
                     <div class="card__text">
@@ -45,9 +46,8 @@
                     <div class="card__text">
                         <h3>Foie gras de canard mi-cuit</h3>
                         <p>Et ses copeaux de truffe noire</p>
-                        </div>
-                        <strong>35€</strong>
                     </div>
+                    <strong>35€</strong>
                 </div>
                 <div class="card">
                     <div class="card__text">
@@ -57,7 +57,7 @@
                     <strong>20€</strong>
                 </div>
             </section>
-            <section class="starter-section">
+            <section class="menu-section">
                 <h3>PLATS</h3>
                 <div class="card">
                     <div class="card__text">
@@ -81,7 +81,7 @@
                     <strong>44€</strong>
                 </div>
             </section>
-            <section class="dessert-section">
+            <section class="menu-section">
                 <h3>DESSERTS</h3>
                 <div class="card">
                     <div class="card__text">
@@ -105,10 +105,19 @@
                     <strong>23€</strong>
                 </div>
             </section>
-            <div class="btn">
-                <button class="btn__order" type="button">Explorer nos restaurants</button>
+            <div class="btn-container">
+                <button class="btn-container__order" type="button">Commander</button>
             </div>
         </main>
+        <footer class="footer">
+            <h3 class="footer__title">ohmyfood</h3>
+            <div class="footer__content">
+                <p>Proposer un restaurant</p> <!-- icon -->
+                <p>Devenir partenaire</p> <!-- icon -->
+                <p>Mentions légales</p>
+                <p>Contact</p>
+            </div>
+        </footer>
     </div>
 </body>
 </html>

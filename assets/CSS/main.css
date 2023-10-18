@@ -20,13 +20,16 @@ body {
   width: 100%; }
 
 .header {
-  text-align: center; }
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
   .header__logo {
     width: 200px;
     padding: 14px 0; }
   .header__location {
     display: flex;
     justify-content: center;
+    width: 100%;
     gap: 17px;
     background-color: #EAEAEA;
     padding: 15px 0; }
@@ -37,12 +40,14 @@ body {
   gap: 16px;
   padding: 22px 25px;
   background-color: #353535;
-  color: #FFFFFF; }
+  color: #FFFFFF;
+  width: 100%;
+  box-sizing: border-box; }
   @media screen and (min-width: 768px) {
     .footer {
       flex-direction: row-reverse;
       align-items: end;
-      padding: 56px 25px 30px 25px; } }
+      padding: 56px 60px 30px 25px; } }
   .footer__title {
     font-size: 28px;
     font-family: "shrikhand", serif;
@@ -57,6 +62,7 @@ body {
 
 .btn-heart {
   display: flex;
+  flex-direction: row;
   align-items: center; }
   .btn-heart__checkbox {
     position: relative;
@@ -82,7 +88,7 @@ body {
   .btn-heart__container--second {
     position: relative;
     /*  */
-    background: -webkit-linear-gradient(#9356DC, #FF79DA);
+    background: linear-gradient(#9356DC, #FF79DA);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

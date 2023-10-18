@@ -41,6 +41,7 @@ $font-weight-500: 500;
 
 @mixin flex-row {
     display: flex;
+    flex-direction: row;
 }
 
 @mixin btn-explorer-command($width, $height) {
@@ -94,7 +95,8 @@ body {
 }
 
 .header {
-    text-align: center;
+    @include flex-column;
+    align-items: center;
     &__logo {
         width: 200px;
         padding: 14px 0;
@@ -102,6 +104,7 @@ body {
     &__location {
         display: flex;
         justify-content: center;
+        width: 100%;
         gap: 17px;
         background-color: $bg-color-grey-2;
         padding: 15px 0;
@@ -113,10 +116,12 @@ body {
     padding: 22px 25px;
     background-color: $bg-color-footer;
     color: $main-bg-color;
+    width: 100%;
+    box-sizing: border-box;
     @include media-query-size(tablet) {
         flex-direction: row-reverse;
         align-items: end;
-        padding: 56px 25px 30px 25px;
+        padding: 56px 60px 30px 25px;
     }
     &__title {
         @include title-h1-shrikhand;
@@ -163,7 +168,7 @@ body {
         }
         &--second { 
             position: relative;/*  */
-            background: -webkit-linear-gradient(#9356DC, $btn-color);
+            background: linear-gradient(#9356DC, $btn-color);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;

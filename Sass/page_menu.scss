@@ -1,21 +1,79 @@
 @import '../Sass/main.scss';
 
 
-img {
-    object-fit: cover;
-    width: 100%;
+
+
+.main-container {
+    @include flex-column;
+    &__img {
+        width: 100%;
+        object-fit: cover;
+        height: 275px;
+        position: relative;
+        @include media-query-size(desktop) {
+            object-position: 50% 70%;
+            height: 380px;
+        }
+    }
 }
 
+.background-container {
+    @include flex-column;
+    width: 100%;
+    position: relative;
+    margin-top: -55px;
+    max-width: 470px;
+    background-color: $bg-color-grey;
+    border-radius: 40px 40px 0 0;
+    padding: 32px 13px 40px 13px;
+    gap: 40px;
+    align-self: center;
+    box-sizing: border-box;
+    @include media-query-size(desktop) {
+        max-width: 1055px;
+    }
 
-.btn {
+}
+
+.header {
+    @include flex-row;
+    padding: 14px 0 13px 17px;
+    &__btn {
+    }
+    &__logo {
+        padding: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.intro {
+    @include flex-column;
+    gap: 12px;
+    padding: 0 17px;
+    &__container {
+        @include flex-row;
+        border-radius: 40px 40px 0 0;
+        justify-content: space-between;
+    }
+}
+
+.menu-section {
+    @include flex-column;
+    gap: 12px;
+    .card {
+        padding: 15px;
+        border-radius: 15px;
+        @include flex-row;
+        justify-content: space-between;
+        align-items: flex-end;
+        background-color: $main-bg-color;
+    }
+}
+.btn-container {
+    @include flex-row;
+    justify-content: center;
     &__order {
         @include btn-explorer-command(186px, 50px);
     }
-}
-.background-container {
-    @include flex-column;
-}
-section {
-    display: flex;
-    flex-direction: column;
 }
