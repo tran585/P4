@@ -1,4 +1,4 @@
-@import 'main';
+@import 'main.scss';
 
 .intro-section {
     @include flex-column;
@@ -21,7 +21,6 @@
     &__text {
         padding: 0 26px 0 34px;
         font-size: $font-size-18px;
-        font-weight: 300;
         text-align: center;
     }
     &__btn {
@@ -45,6 +44,7 @@
         @include flex-column;
         align-items: center;
         gap: 25px;
+        font-weight: $font-weight-500;
         &__card {
             display: flex;
             align-items: center;
@@ -109,33 +109,52 @@
                 justify-content: space-between;
                 width: 100%
             }
-        }
-        .card {
-            @include flex-column;
-            background-color: $main-bg-color;
-            border-radius: 15px;
-            width: 100%;
-            @include media-query-size(tablet) {
-                width: 80%;
-                max-width: 498px;
-            }
-            @include media-query-size(desktop) {
-                width: 46.1%;
-            }
-            &__img {
-                height: 172px;
+            .card {
+                @include flex-column;
+                background-color: $main-bg-color;
+                border-radius: 15px;
                 width: 100%;
-                object-fit: cover;
-                object-position: 50% 61%;
-                border-radius: 15px 15px 0 0;
-            }
-            .card__content {
-                @include flex-row;
-                justify-content: space-between;
-                padding: 9px 16px 12px 13px;
-                &--text {
-                    line-height: 1.4;
+                position: relative;
+                @include media-query-size(tablet) {
+                    width: 80%;
+                    max-width: 498px;
                 }
+                @include media-query-size(desktop) {
+                    width: 46.1%;
+                }
+                &__img {
+                    height: 172px;
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: 50% 61%;
+                    border-radius: 15px 15px 0 0;
+                }
+                
+                .card__content {
+                    @include flex-row;
+                    justify-content: space-between;
+                    padding: 9px 25px 12px 13px;
+                    &--text {
+                        line-height: 1.4;
+                        p {
+                            @include weight-size($font-weight-300, $font-size-17px);
+                        }
+                    }
+                }
+            }
+            .badge::after {
+                content: "Nouveau";
+                text-align: center;
+                position: absolute;
+                right: 15px;
+                top: 15px;
+                padding: 7px 12px 6px 12px;
+                @include weight-size($font-weight-500, 14px);
+                color: $badge-color-text;
+                background-color: $badge-color;
+                border-radius: 2px;
+                box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+                z-index: 1;
             }
         }
     }

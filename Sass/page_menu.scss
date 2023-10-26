@@ -1,4 +1,4 @@
-@import '../Sass/main.scss';
+@import 'main.scss';
 
 
 
@@ -10,6 +10,10 @@
         object-fit: cover;
         height: 275px;
         position: relative;
+        @include media-query-size(tablet) {
+            object-position: 50% 70%;
+            height: 320px;
+        }
         @include media-query-size(desktop) {
             object-position: 50% 70%;
             height: 380px;
@@ -29,10 +33,13 @@
     gap: 40px;
     align-self: center;
     box-sizing: border-box;
+    @include media-query-size(tablet) {
+        max-width: 768px;
+        width: 80%;
+    }
     @include media-query-size(desktop) {
         max-width: 1055px;
     }
-
 }
 
 .header {
@@ -48,28 +55,116 @@
 }
 
 .intro {
-    @include flex-column;
-    gap: 12px;
+    @include flex-row;
     padding: 0 17px;
+    @include media-query-size(tablet) {
+        justify-content: center;
+    }
     &__container {
+        &--title {
+            @include title-h1-shrikhand
+        }
         @include flex-row;
+        align-items: center;
+        width: 100%;
         border-radius: 40px 40px 0 0;
         justify-content: space-between;
+        @include media-query-size(tablet) {
+            justify-content: center;
+            gap: 24px;
+        }
     }
 }
 
 .menu-section {
     @include flex-column;
     gap: 12px;
+    &__title {
+        &::after {
+            content: "";
+            display: block;
+            width: 40px;
+            border-bottom: 3px solid $badge-color;
+            margin-top: 8px;
+        }
+        @include weight-size($font-weight-300, 16px);
+    }
     .card {
         padding: 15px;
+        position: relative;
         border-radius: 15px;
         @include flex-row;
         justify-content: space-between;
         align-items: flex-end;
         background-color: $main-bg-color;
+        overflow: hidden;
+        &__text {
+            white-space: nowrap;
+            overflow: hidden;
+            @include flex-column;
+            gap: 5px;
+            &--title {
+                @include weight-size($font-weight-500, $font-size-18px);
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            &--text {
+                @include weight-size($font-weight-300, $font-size-15px);
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+        &__price {
+            font-size: $font-size-15px;
+            transition: transform 300ms ease-in-out,margin-right 300ms ease-in-out;
+        }
+        &__checkbox {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            opacity: 0;
+            &:checked + .card__select {
+                transform: translateX(0);
+                & + .card__price {
+                    margin-right: 50px;
+                }
+            }
+            &:not(:checked) + .card__select {
+                transform: translateX(100%);
+            }
+        }
+        &__select {
+            @include flex-row;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            justify-content: center;
+            align-items: center;
+            height: 71px;
+            width: 59px;
+            border-radius: 0 14px 14px 0;
+            background-color: $badge-color;
+            transform-origin: 100%;
+            transition: transform 280ms ease-in-out,translate 300ms ease-in-out, visibility 0ms ease-in-out;
+            .fa-check {
+                transition: transform 300ms ease-in-out, translate 900ms ease-in-out;
+                border-radius: 10px;
+                padding: 2px;
+                color: $badge-color;
+                background-color: white;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
     }
 }
+
 .btn-container {
     @include flex-row;
     justify-content: center;
@@ -77,4 +172,3 @@
         @include btn-explorer-command(186px, 50px);
     }
 }
-

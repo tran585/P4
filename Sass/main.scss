@@ -13,10 +13,12 @@ $bg-color-grey-2: #EAEAEA;
 $bg-color-footer: #353535;
 $btn-color: #FF79DA;
 $badge-color: #99E2D0;
+$badge-color-text: #008766;
 
 /* font-size */
 $font-size-badge: 14px;
 $font-size-17px: 17px;
+$font-size-15px: 15px;
 $font-size-18px: 18px;
 
 $font-weight-300: 300;
@@ -29,9 +31,9 @@ $font-weight-500: 500;
     font-family: $font-family-shrikhand;
 }
 
-@mixin weight-size-300 ($font-size) {
+@mixin weight-size ($font-weight, $font-size) {
+    font-weight: $font-weight;
     font-size: $font-size;
-    font-weight: $font-weight-300;
 }
 
 @mixin flex-column {
@@ -118,7 +120,7 @@ body {
     color: $main-bg-color;
     width: 100%;
     box-sizing: border-box;
-    @include media-query-size(tablet) {
+    @include media-query-size(desktop) {
         flex-direction: row-reverse;
         align-items: end;
         padding: 56px 60px 30px 25px;
@@ -132,21 +134,46 @@ body {
         gap: 7px;
         @include media-query-size(tablet) {
             flex-direction: row;
+            gap: 40px;
+        }
+        @include media-query-size(desktop) {
+            margin-right: 83px;
+        }
+        .container-about {
+            @include flex-column;
+            gap: 8px;
+            .fa-utensils {
+                margin-right: 11px;
+                width: 11px;
+                height: 13px;
+            }
+            .fa-handshake-angle {
+                margin-right: 10.08px;
+                width: 11.918px;
+                height: 13px
+            }
+            @include media-query-size(desktop) {
+                flex-direction: row;
+            }
         }
     }
 }
 
 .btn-heart {
     @include flex-row;
+    position: relative;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
     align-items: center;
     &__checkbox {
-        position: relative;
-        z-index: 1;
-        opacity: 0;
+        position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
-        left: 18px;
+        left: 0;
+        z-index: 3;
+        opacity: 0;
         &:checked + .btn-heart__container .btn-heart__container--first {
             opacity: 0;
         }
@@ -159,7 +186,7 @@ body {
             font-size: 22px;
         }
         &--first {
-            position: relative;
+            position: absolute;
             top: 0;
             right: 0;
             bottom: 0;
@@ -167,17 +194,17 @@ body {
             transition: opacity 100ms;
         }
         &--second { 
-            position: relative;/*  */
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
             background: linear-gradient(#9356DC, $btn-color);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             transition: opacity 1000ms cubic-bezier(.03,.99,1,.58);
             opacity: 0;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: -26px;
         }
     }
 }
