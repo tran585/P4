@@ -110,6 +110,9 @@ body {
         gap: 17px;
         background-color: $bg-color-grey-2;
         padding: 15px 0;
+        p, i {
+            color: #353535;
+        }
     }
 }
 .footer {

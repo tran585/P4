@@ -1,5 +1,16 @@
 @import 'main.scss';
 
+$animation-duration: 2000ms;
+$delay-function: $animation-duration / 3;
+
+@keyframes menu-loader {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
 
 
 
@@ -45,8 +56,6 @@
 .header {
     @include flex-row;
     padding: 14px 0 13px 17px;
-    &__btn {
-    }
     &__logo {
         padding: 0;
         margin-left: auto;
@@ -79,6 +88,12 @@
 .menu-section {
     @include flex-column;
     gap: 12px;
+    animation: menu-loader $animation-duration backwards;
+    @for $i from 1 through 3 {
+        &--#{$i} {
+            animation-delay: $delay-function * $i;
+        }
+    }
     &__title {
         &::after {
             content: "";
@@ -116,7 +131,7 @@
         }
         &__price {
             font-size: $font-size-15px;
-            transition: transform 300ms ease-in-out,margin-right 300ms ease-in-out;
+            transition: transform 280ms ease-in-out,margin-right 280ms ease-in-out;
         }
         &__checkbox {
             position: absolute;

@@ -33,6 +33,8 @@ body {
     gap: 17px;
     background-color: #EAEAEA;
     padding: 15px 0; }
+    .header__location p, .header__location i {
+      color: #353535; }
 
 .footer {
   display: flex;
