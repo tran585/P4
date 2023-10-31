@@ -63,6 +63,19 @@ $font-weight-500: 500;
     }
 }
 
+@mixin badge {
+    content: "Nouveau";
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    padding: 7px 12px 6px 12px;
+    @include weight-size($font-weight-500, 14px);
+    color: $badge-color-text;
+    background-color: $badge-color;
+    border-radius: 2px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
 @mixin media-query-size ($breakpoint) {
     @if $breakpoint == tablet {
         @media screen and (min-width: 768px) {
@@ -77,6 +90,102 @@ $font-weight-500: 500;
     @else if $breakpoint == large-desktop {
         @media screen and (min-width: 1440px) {
             @content;
+        }
+    }
+}
+
+@keyframes loader-background {
+    0% {
+        display: initial;
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0; 
+        /* return display: none */
+    }
+}
+
+@keyframes loader-ball-1 {
+    0% {
+        position: absolute;
+    }
+    50% {
+        left: 12px;
+        top: 12px;
+        opacity: 0.5;
+        position: absolute;
+    }
+    100% {
+        position: absolute;
+    }
+}
+
+@keyframes loader-ball-2 {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(360deg) scale(1.30);
+    }
+    100% {
+        transform: rotate(720deg) scale(1);
+    }
+}
+
+
+
+
+.loader {
+    background-color: rgba(255, 255, 255, 1);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+    animation: loader-background 3000ms ease-in-out;
+    &__container {
+        position: absolute;
+        height: 43px;
+        width: 43px;
+        top: 50%;
+        left: 50%;
+        animation: loader-ball-2 2000ms ease-in-out infinite;
+        &--ball {
+            position: absolute;
+            height: 43px;
+            width: 43px;
+            .ball {
+                position: absolute;
+                display: block;
+                z-index: 1;
+                height: 19px;
+                width: 19px;
+                border-radius: 100%;
+                background-color: #9356DC;
+            }
+            .ball-1 {
+                top: 0;
+                left: 0;
+                animation: loader-ball-1 1800ms ease-in-out infinite;
+            }
+            .ball-2 {
+                top: 0;
+                left: 23px;
+                animation: loader-ball-1 1800ms ease-in-out infinite;
+            }
+            .ball-3 {
+                top: 23px;
+                left: 0;
+                animation: loader-ball-1 1800ms ease-in-out infinite;
+            }
+            .ball-4 {
+                left: 23px;
+                top: 23px;
+                animation: loader-ball-1 1800ms ease-in-out infinite;
+            }
         }
     }
 }
@@ -175,7 +284,7 @@ body {
         right: 0;
         bottom: 0;
         left: 0;
-        z-index: 3;
+        z-index: 1;
         opacity: 0;
         &:checked + .btn-heart__container .btn-heart__container--first {
             opacity: 0;

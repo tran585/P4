@@ -6,6 +6,76 @@
 /* color */
 /* font-size */
 /* Mixin */
+@keyframes loader-background {
+  0% {
+    display: initial;
+    opacity: 1; }
+  85% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    /* return display: none */ } }
+@keyframes loader-ball-1 {
+  0% {
+    position: absolute; }
+  50% {
+    left: 12px;
+    top: 12px;
+    opacity: 0.5;
+    position: absolute; }
+  100% {
+    position: absolute; } }
+@keyframes loader-ball-2 {
+  0% {
+    transform: rotate(0deg) scale(1); }
+  50% {
+    transform: rotate(360deg) scale(1.3); }
+  100% {
+    transform: rotate(720deg) scale(1); } }
+.loader {
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none;
+  animation: loader-background 3000ms ease-in-out; }
+  .loader__container {
+    position: absolute;
+    height: 43px;
+    width: 43px;
+    top: 50%;
+    left: 50%;
+    animation: loader-ball-2 2000ms ease-in-out infinite; }
+    .loader__container--ball {
+      position: absolute;
+      height: 43px;
+      width: 43px; }
+      .loader__container--ball .ball {
+        position: absolute;
+        display: block;
+        z-index: 1;
+        height: 19px;
+        width: 19px;
+        border-radius: 100%;
+        background-color: #9356DC; }
+      .loader__container--ball .ball-1 {
+        top: 0;
+        left: 0;
+        animation: loader-ball-1 1800ms ease-in-out infinite; }
+      .loader__container--ball .ball-2 {
+        top: 0;
+        left: 23px;
+        animation: loader-ball-1 1800ms ease-in-out infinite; }
+      .loader__container--ball .ball-3 {
+        top: 23px;
+        left: 0;
+        animation: loader-ball-1 1800ms ease-in-out infinite; }
+      .loader__container--ball .ball-4 {
+        left: 23px;
+        top: 23px;
+        animation: loader-ball-1 1800ms ease-in-out infinite; }
+
 a {
   text-decoration: none;
   color: inherit; }
@@ -95,7 +165,7 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 3;
+    z-index: 1;
     opacity: 0; }
     .btn-heart__checkbox:checked + .btn-heart__container .btn-heart__container--first {
       opacity: 0; }
@@ -276,7 +346,7 @@ body {
       border-radius: 0 14px 14px 0;
       background-color: #99E2D0;
       transform-origin: 100%;
-      transition: transform 280ms ease-in-out,translate 300ms ease-in-out, visibility 0ms ease-in-out; }
+      transition: transform 280ms ease-in-out; }
       .menu-section .card__select .fa-check {
         border-radius: 10px;
         padding: 2px;
