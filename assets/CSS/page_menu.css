@@ -37,7 +37,7 @@
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 10;
   display: none;
   animation: loader-background 3000ms ease-in-out; }
   .loader__container {
@@ -155,7 +155,7 @@ body {
   display: flex;
   flex-direction: row;
   position: relative;
-  width: 22px;
+  width: 23px;
   height: 22px;
   min-width: 22px;
   align-items: center; }
@@ -169,8 +169,17 @@ body {
     opacity: 0; }
     .btn-heart__checkbox:checked + .btn-heart__container .btn-heart__container--first {
       opacity: 0; }
-    .btn-heart__checkbox:checked + .btn-heart__container .btn-heart__container--second {
-      opacity: 1; }
+      .btn-heart__checkbox:checked + .btn-heart__container .btn-heart__container--first + .btn-heart__container--second {
+        opacity: 1; }
+    @media screen and (min-width: 1024px) {
+      .btn-heart__checkbox:hover + .btn-heart__container .btn-heart__container--first {
+        opacity: 0; }
+        .btn-heart__checkbox:hover + .btn-heart__container .btn-heart__container--first + .btn-heart__container--second {
+          opacity: 1; }
+      .btn-heart__checkbox:not(:hover) + .btn-heart__container .btn-heart__container--first {
+        opacity: 1; }
+        .btn-heart__checkbox:not(:hover) + .btn-heart__container .btn-heart__container--first + .btn-heart__container--second {
+          opacity: 0; } }
   .btn-heart__container .fa-heart {
     font-size: 22px; }
   .btn-heart__container--first {
@@ -330,8 +339,15 @@ body {
         transform: translateX(0); }
         .menu-section .card__checkbox:checked + .card__select + .card__price {
           margin-right: 50px; }
-      .menu-section .card__checkbox:not(:checked) + .card__select {
-        transform: translateX(100%); }
+      @media screen and (min-width: 1024px) {
+        .menu-section .card__checkbox:hover + .card__select {
+          transform: translateX(0); }
+          .menu-section .card__checkbox:hover + .card__select + .card__price {
+            margin-right: 50px; }
+        .menu-section .card__checkbox:not(:hover) + .card__select {
+          transform: translateX(100%); }
+          .menu-section .card__checkbox:not(:hover) + .card__select + .card__price {
+            margin-right: 0; } }
     .menu-section .card__select {
       display: flex;
       flex-direction: row;
@@ -343,6 +359,7 @@ body {
       align-items: center;
       height: 73.5px;
       width: 59px;
+      transform: translateX(100%);
       border-radius: 0 14px 14px 0;
       background-color: #99E2D0;
       transform-origin: 100%;
@@ -361,9 +378,11 @@ body {
   flex-direction: row;
   justify-content: center; }
   .btn-container__order {
+    position: relative;
     width: 186px;
     height: 50px;
     border-radius: 25px;
+    z-index: 1;
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
     border: none;
     font-size: 16px;
@@ -371,7 +390,19 @@ body {
     color: #FFFFFF;
     padding: 13px 18px;
     background: linear-gradient(193deg, #9356DC -11.44%, #FF79DA 123.93%); }
-    .btn-container__order:hover {
+    .btn-container__order:hover::after {
+      opacity: 1; }
+    .btn-container__order::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 300ms ease-in-out;
+      border-radius: 25px;
       background: linear-gradient(0deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.15) 100%), linear-gradient(201deg, #9356DC -5.2%, #FF79DA 110.74%);
       box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.35); }
 

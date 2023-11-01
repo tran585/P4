@@ -94,6 +94,7 @@ $delay-function: $animation-duration / 3;
         }
     }
     &__title {
+        @include weight-size($font-weight-300, 16px);
         &::after {
             content: "";
             display: block;
@@ -101,7 +102,6 @@ $delay-function: $animation-duration / 3;
             border-bottom: 3px solid $badge-color;
             margin-top: 8px;
         }
-        @include weight-size($font-weight-300, 16px);
     }
     .card {
         padding: 15px;
@@ -148,8 +148,19 @@ $delay-function: $animation-duration / 3;
                     margin-right: 50px;
                 }
             }
-            &:not(:checked) + .card__select {
-                transform: translateX(100%);
+            @include media-query-size(desktop) {
+                &:hover + .card__select {
+                    transform: translateX(0);
+                    & + .card__price {
+                        margin-right: 50px;
+                    }
+                }
+                &:not(:hover) + .card__select {
+                    transform: translateX(100%);
+                    & + .card__price {
+                        margin-right: 0;
+                    }
+                }
             }
         }
         &__select {
@@ -162,6 +173,7 @@ $delay-function: $animation-duration / 3;
             align-items: center;
             height: 73.5px;
             width: 59px;
+            transform: translateX(100%);
             border-radius: 0 14px 14px 0;
             background-color: $badge-color;
             transform-origin: 100%;
