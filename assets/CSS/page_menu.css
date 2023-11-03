@@ -15,7 +15,14 @@
   100% {
     opacity: 0;
     /* return display: none */ } }
-@keyframes loader-ball-1 {
+@keyframes loader-ball-rotate {
+  0% {
+    transform: rotate(0deg) scale(1); }
+  50% {
+    transform: rotate(360deg) scale(1.3); }
+  100% {
+    transform: rotate(720deg) scale(1); } }
+@keyframes loader-ball-center {
   0% {
     position: absolute; }
   50% {
@@ -25,13 +32,6 @@
     position: absolute; }
   100% {
     position: absolute; } }
-@keyframes loader-ball-2 {
-  0% {
-    transform: rotate(0deg) scale(1); }
-  50% {
-    transform: rotate(360deg) scale(1.3); }
-  100% {
-    transform: rotate(720deg) scale(1); } }
 .loader {
   background-color: white;
   position: fixed;
@@ -46,35 +46,27 @@
     width: 43px;
     top: 50%;
     left: 50%;
-    animation: loader-ball-2 2000ms ease-in-out infinite; }
-    .loader__container--ball {
+    animation: loader-ball-rotate 1500ms ease-in-out infinite; }
+    .loader__container .ball {
       position: absolute;
-      height: 43px;
-      width: 43px; }
-      .loader__container--ball .ball {
-        position: absolute;
-        display: block;
-        z-index: 1;
-        height: 19px;
-        width: 19px;
-        border-radius: 100%;
-        background-color: #9356DC; }
-      .loader__container--ball .ball-1 {
+      z-index: 1;
+      height: 19px;
+      width: 19px;
+      border-radius: 100%;
+      background-color: #9356DC;
+      animation: loader-ball-center 1500ms ease-in-out infinite; }
+      .loader__container .ball.ball-1 {
         top: 0;
-        left: 0;
-        animation: loader-ball-1 1800ms ease-in-out infinite; }
-      .loader__container--ball .ball-2 {
+        left: 0; }
+      .loader__container .ball.ball-2 {
         top: 0;
-        left: 23px;
-        animation: loader-ball-1 1800ms ease-in-out infinite; }
-      .loader__container--ball .ball-3 {
+        left: 23px; }
+      .loader__container .ball.ball-3 {
         top: 23px;
-        left: 0;
-        animation: loader-ball-1 1800ms ease-in-out infinite; }
-      .loader__container--ball .ball-4 {
+        left: 0; }
+      .loader__container .ball.ball-4 {
         left: 23px;
-        top: 23px;
-        animation: loader-ball-1 1800ms ease-in-out infinite; }
+        top: 23px; }
 
 a {
   text-decoration: none;
@@ -333,7 +325,6 @@ body {
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 2;
       opacity: 0; }
       .menu-section .card__checkbox:checked + .card__select {
         transform: translateX(0); }

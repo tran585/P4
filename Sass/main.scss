@@ -125,7 +125,19 @@ $font-weight-500: 500;
     }
 }
 
-@keyframes loader-ball-1 {
+@keyframes loader-ball-rotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(360deg) scale(1.30);
+    }
+    100% {
+        transform: rotate(720deg) scale(1);
+    }
+}
+
+@keyframes loader-ball-center {
     0% {
         position: absolute;
     }
@@ -137,18 +149,6 @@ $font-weight-500: 500;
     }
     100% {
         position: absolute;
-    }
-}
-
-@keyframes loader-ball-2 {
-    0% {
-        transform: rotate(0deg) scale(1);
-    }
-    50% {
-        transform: rotate(360deg) scale(1.30);
-    }
-    100% {
-        transform: rotate(720deg) scale(1);
     }
 }
 
@@ -167,39 +167,30 @@ $font-weight-500: 500;
         width: 43px;
         top: 50%;
         left: 50%;
-        animation: loader-ball-2 2000ms ease-in-out infinite;
-        &--ball {
+        animation: loader-ball-rotate 1500ms ease-in-out infinite;
+        .ball {
             position: absolute;
-            height: 43px;
-            width: 43px;
-            .ball {
-                position: absolute;
-                display: block;
-                z-index: 1;
-                height: 19px;
-                width: 19px;
-                border-radius: 100%;
-                background-color: #9356DC;
-            }
-            .ball-1 {
+            z-index: 1;
+            height: 19px;
+            width: 19px;
+            border-radius: 100%;
+            background-color: #9356DC;
+            animation: loader-ball-center 1500ms ease-in-out infinite;
+            &.ball-1 {
                 top: 0;
                 left: 0;
-                animation: loader-ball-1 1800ms ease-in-out infinite;
             }
-            .ball-2 {
+            &.ball-2 {
                 top: 0;
                 left: 23px;
-                animation: loader-ball-1 1800ms ease-in-out infinite;
             }
-            .ball-3 {
+            &.ball-3 {
                 top: 23px;
                 left: 0;
-                animation: loader-ball-1 1800ms ease-in-out infinite;
             }
-            .ball-4 {
+            &.ball-4 {
                 left: 23px;
                 top: 23px;
-                animation: loader-ball-1 1800ms ease-in-out infinite;
             }
         }
     }

@@ -140,7 +140,6 @@ $delay-function: $animation-duration / 3;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 2;
             opacity: 0;
             &:checked + .card__select {
                 transform: translateX(0);
