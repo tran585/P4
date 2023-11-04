@@ -152,9 +152,9 @@ body {
   .btn-heart__checkbox {
     position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
+    width: 100%;
+    height: 80%;
     z-index: 1;
     opacity: 0; }
     .btn-heart__checkbox:checked + .btn-heart__container .btn-heart__container--first {
