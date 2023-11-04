@@ -8,13 +8,12 @@
 /* Mixin */
 @keyframes loader-background {
   0% {
-    display: initial;
     opacity: 1; }
   85% {
     opacity: 1; }
   100% {
     opacity: 0;
-    /* return display: none */ } }
+    visibility: hidden; } }
 @keyframes loader-ball-rotate {
   0% {
     transform: rotate(0deg) scale(1); }
@@ -35,18 +34,19 @@
 .loader {
   background-color: white;
   position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   width: 100%;
   height: 100%;
   z-index: 10;
-  display: none;
-  animation: loader-background 3000ms ease-in-out; }
+  animation: loader-background 3000ms ease-in 1 forwards; }
   .loader__container {
     position: absolute;
     height: 43px;
     width: 43px;
     top: 50%;
-    left: 50%;
-    animation: loader-ball-rotate 1500ms ease-in-out infinite; }
+    animation: loader-ball-rotate 1500ms ease-in-out 2; }
     .loader__container .ball {
       position: absolute;
       z-index: 1;
@@ -54,7 +54,7 @@
       width: 19px;
       border-radius: 100%;
       background-color: #9356DC;
-      animation: loader-ball-center 1500ms ease-in-out infinite; }
+      animation: loader-ball-center 1500ms ease-in-out 2; }
       .loader__container .ball.ball-1 {
         top: 0;
         left: 0; }
@@ -154,9 +154,9 @@ body {
   .btn-heart__checkbox {
     position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
+    width: 100%;
+    height: 80%;
     z-index: 1;
     opacity: 0; }
     .btn-heart__checkbox:checked + .btn-heart__container .btn-heart__container--first {
@@ -316,12 +316,10 @@ body {
         overflow: hidden; }
     .menu-section .card__price {
       font-size: 15px;
-      transition: transform 280ms ease-in-out,margin-right 280ms ease-in-out; }
+      transition: margin-right 250ms ease-in-out; }
     .menu-section .card__checkbox {
       position: absolute;
       top: 0;
-      right: 0;
-      bottom: 0;
       left: 0;
       width: 100%;
       height: 100%;
@@ -329,12 +327,12 @@ body {
       .menu-section .card__checkbox:checked + .card__select {
         transform: translateX(0); }
         .menu-section .card__checkbox:checked + .card__select + .card__price {
-          margin-right: 50px; }
+          margin-right: 60px; }
       @media screen and (min-width: 1024px) {
         .menu-section .card__checkbox:hover + .card__select {
           transform: translateX(0); }
           .menu-section .card__checkbox:hover + .card__select + .card__price {
-            margin-right: 50px; }
+            margin-right: 60px; }
         .menu-section .card__checkbox:not(:hover) + .card__select {
           transform: translateX(100%); }
           .menu-section .card__checkbox:not(:hover) + .card__select + .card__price {
@@ -343,25 +341,23 @@ body {
       display: flex;
       flex-direction: row;
       position: absolute;
-      top: 0;
+      top: -0.1px;
       right: 0;
-      bottom: 0;
+      bottom: -0.1px;
       justify-content: center;
       align-items: center;
-      height: 73.5px;
       width: 59px;
       transform: translateX(100%);
       border-radius: 0 14px 14px 0;
       background-color: #99E2D0;
       transform-origin: 100%;
-      transition: transform 280ms ease-in-out; }
+      transition: transform 250ms ease-in-out; }
       .menu-section .card__select .fa-check {
         border-radius: 10px;
         padding: 2px;
         color: #99E2D0;
         background-color: white;
         white-space: nowrap;
-        /*  */
         overflow: hidden; }
 
 .btn-container {

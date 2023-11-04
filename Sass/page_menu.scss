@@ -130,13 +130,11 @@ $delay-function: $animation-duration / 3;
         }
         &__price {
             font-size: $font-size-15px;
-            transition: transform 280ms ease-in-out,margin-right 280ms ease-in-out;
+            transition: margin-right 250ms ease-in-out;
         }
         &__checkbox {
             position: absolute;
             top: 0;
-            right: 0;
-            bottom: 0;
             left: 0;
             width: 100%;
             height: 100%;
@@ -144,14 +142,14 @@ $delay-function: $animation-duration / 3;
             &:checked + .card__select {
                 transform: translateX(0);
                 & + .card__price {
-                    margin-right: 50px;
+                    margin-right: 60px;
                 }
             }
             @include media-query-size(desktop) {
                 &:hover + .card__select {
                     transform: translateX(0);
                     & + .card__price {
-                        margin-right: 50px;
+                        margin-right: 60px;
                     }
                 }
                 &:not(:hover) + .card__select {
@@ -165,24 +163,23 @@ $delay-function: $animation-duration / 3;
         &__select {
             @include flex-row;
             position: absolute;
-            top: 0;
+            top: -0.1px;
             right: 0;
-            bottom: 0;
+            bottom: -0.1px;
             justify-content: center;
             align-items: center;
-            height: 73.5px;
             width: 59px;
             transform: translateX(100%);
             border-radius: 0 14px 14px 0;
             background-color: $badge-color;
             transform-origin: 100%;
-            transition: transform 280ms ease-in-out;
+            transition: transform 250ms ease-in-out;
             .fa-check {
                 border-radius: 10px;
                 padding: 2px;
                 color: $badge-color;
                 background-color: white;
-                white-space: nowrap; /*  */
+                white-space: nowrap;
                 overflow: hidden;
             }
         }
